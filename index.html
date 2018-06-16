@@ -82,7 +82,21 @@ limitations under the License.
   </article>
 
   <footer>
-
+    <script>
+      (function() {
+        if (!('serviceWorker' in navigator)) {
+          console.log('Service worker not supported');
+          return;
+        }
+        navigator.serviceWorker.register('sw.js')
+        .then(function(registration) {
+          console.log('SW successfully registered');
+        })
+        .catch(function(error) {
+          console.log('registration failed', error);
+        });
+      })();
+    </script>
     <div id="social">
       <a href="https://twitter.com/home?status=https://github.com/udacity/responsive-images">Twitter</a>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/udacity/responsive-images">Facebook</a>
